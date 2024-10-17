@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Tutorial: Learn Python Programming</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Learn Python Programming</h1>
+    <p>A comprehensive tutorial covering the basics and advanced concepts of Python.</p>
+  </header>
+
+  <section>
+    <h2>What is Python?</h2>
+    <p>Python is a high-level, interpreted programming language known for its easy syntax and versatility. It is widely used in web development, data science, artificial intelligence, automation, and more.</p>
+  </section>
+
+  <section>
+    <h2>Prerequisites</h2>
+    <p>To follow this tutorial, you need to have Python installed on your system. You can download it from the <a href="https://www.python.org/downloads/">official Python website</a>.</p>
+    <p>Additionally, it is recommended to use an Integrated Development Environment (IDE) like PyCharm, Visual Studio Code, or Jupyter Notebook for coding.</p>
+  </section>
+
+  <section>
+    <h2>Step 1: Python Basics</h2>
+    <h3>Data Types</h3>
+    <p>Python has several built-in data types:</p>
+    <ul>
+      <li><strong>Integer:</strong> Whole numbers, e.g., <code>42</code></li>
+      <li><strong>Float:</strong> Decimal numbers, e.g., <code>3.14</code></li>
+      <li><strong>String:</strong> A sequence of characters, e.g., <code>'Hello, World!'</code></li>
+      <li><strong>Boolean:</strong> Represents <code>True</code> or <code>False</code></li>
+    </ul>
+    <p>Example:</p>
+    <pre><code>
+# Defining variables
+integer_var = 42
+float_var = 3.14
+string_var = 'Hello, World!'
+boolean_var = True
+
+print(integer_var, float_var, string_var, boolean_var)
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 2: Control Structures</h2>
+    <h3>Conditional Statements</h3>
+    <p>Control the flow of your program using <code>if</code>, <code>elif</code>, and <code>else</code> statements.</p>
+    <pre><code>
+# Conditional statement example
+age = 20
+
+if age < 18:
+    print("You are a minor.")
+elif age < 65:
+    print("You are an adult.")
+else:
+    print("You are a senior.")
+    </code></pre>
+
+    <h3>Loops</h3>
+    <p>Use <code>for</code> and <code>while</code> loops to repeat actions.</p>
+    <pre><code>
+# For loop example
+for i in range(5):
+    print("Iteration:", i)
+
+# While loop example
+count = 0
+while count < 5:
+    print("Count:", count)
+    count += 1
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 3: Functions</h2>
+    <p>Functions help organize your code into reusable blocks. You can define a function using the <code>def</code> keyword.</p>
+    <pre><code>
+# Function definition
+def greet(name):
+    return f"Hello, {name}!"
+
+# Function call
+print(greet("Alice"))
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 4: Data Structures</h2>
+    <h3>Lists</h3>
+    <p>Lists are mutable sequences that can hold a collection of items.</p>
+    <pre><code>
+# List example
+fruits = ['apple', 'banana', 'cherry']
+fruits.append('orange')  # Adding an item
+print(fruits)
+    </code></pre>
+
+    <h3>Dictionaries</h3>
+    <p>Dictionaries are key-value pairs that allow for fast retrieval of data.</p>
+    <pre><code>
+# Dictionary example
+person = {'name': 'Alice', 'age': 30}
+print(person['name'])  # Accessing value by key
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 5: Object-Oriented Programming (OOP)</h2>
+    <p>Python supports OOP principles such as inheritance, encapsulation, and polymorphism. Here's a simple example:</p>
+    <pre><code>
+# Defining a class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} makes a sound."
+
+# Inheriting from a parent class
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} barks."
+
+# Creating instances
+dog = Dog("Buddy")
+print(dog.speak())  # Output: Buddy barks.
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 6: Exception Handling</h2>
+    <p>Handle errors gracefully using try-except blocks.</p>
+    <pre><code>
+# Exception handling example
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+finally:
+    print("Execution finished.")
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 7: File Handling</h2>
+    <p>Python makes it easy to read from and write to files.</p>
+    <pre><code>
+# Writing to a file
+with open('example.txt', 'w') as f:
+    f.write("Hello, World!")
+
+# Reading from a file
+with open('example.txt', 'r') as f:
+    content = f.read()
+    print(content)
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 8: Libraries and Frameworks</h2>
+    <p>Python has a rich ecosystem of libraries and frameworks. Here are a few popular ones:</p>
+    <ul>
+      <li><strong>NumPy:</strong> For numerical computing and handling arrays.</li>
+      <li><strong>Pandas:</strong> For data manipulation and analysis.</li>
+      <li><strong>Matplotlib:</strong> For data visualization.</li>
+      <li><strong>Flask/Django:</strong> For web development.</li>
+      <li><strong>TensorFlow/Keras:</strong> For machine learning and deep learning.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Step 9: Conclusion</h2>
+    <p>Python is a powerful and versatile programming language that can be used in various applications. With this tutorial, you now have a solid foundation to start your journey into Python programming. Practice by building small projects and exploring the vast ecosystem of Python libraries!</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 AIJourney | All Rights Reserved | Email: <a href="mailto:shritejpatil@icloud.com">shritejpatil@icloud.com</a></p>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Network Tutorial: Build Your First Neural Network</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Build Your First Neural Network</h1>
+    <p>A step-by-step guide to creating a simple neural network using Python and TensorFlow.</p>
+  </header>
+
+  <section>
+    <h2>What is a Neural Network?</h2>
+    <p>A neural network is a series of algorithms that attempt to recognize patterns in data. It mimics the human brain's structure, consisting of layers of neurons that process input data and provide outputs.</p>
+  </section>
+
+  <section>
+    <h2>Prerequisites</h2>
+    <p>Before you start, make sure the following libraries are installed:</p>
+    <ul>
+      <li>Python (version 3.x)</li>
+      <li>Pip (Python package installer)</li>
+      <li><code>TensorFlow</code> (Install using <code>pip install tensorflow</code>)</li>
+      <li><code>NumPy</code> for numerical operations (Install using <code>pip install numpy</code>)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Step 1: Importing Libraries</h2>
+    <p>Start by importing the necessary Python libraries for building and training the neural network.</p>
+    <pre><code>
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 2: Preparing the Dataset</h2>
+    <p>For this tutorial, we will use a simple dataset: the XOR problem. It's a classic problem where the goal is to classify two inputs into one of two classes.</p>
+    <pre><code>
+# Input data: XOR problem (binary classification)
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y = np.array([[0], [1], [1], [0]])
+
+print(X)
+print(y)
+    </code></pre>
+    <p>The input consists of pairs of binary values, and the output is the XOR result for each pair.</p>
+  </section>
+
+  <section>
+    <h2>Step 3: Building the Neural Network Model</h2>
+    <p>We'll build a simple neural network with one hidden layer. The network will consist of an input layer, a hidden layer with two neurons, and an output layer with one neuron.</p>
+    <pre><code>
+# Building the neural network model
+model = Sequential()
+
+# Adding the hidden layer with 2 neurons and 'relu' activation
+model.add(Dense(2, activation='relu', input_shape=(2,)))
+
+# Adding the output layer with 1 neuron and 'sigmoid' activation for binary classification
+model.add(Dense(1, activation='sigmoid'))
+
+# Compiling the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Displaying the model summary
+model.summary()
+    </code></pre>
+    <p>Here, we use the <code>adam</code> optimizer, <code>binary_crossentropy</code> loss function, and <code>accuracy</code> as the evaluation metric.</p>
+  </section>
+
+  <section>
+    <h2>Step 4: Training the Model</h2>
+    <p>Now we will train the model using the XOR data. We'll run the training for 1000 epochs.</p>
+    <pre><code>
+# Training the model
+model.fit(X, y, epochs=1000, verbose=1)
+    </code></pre>
+    <p>The <code>verbose=1</code> parameter provides updates during training, showing the model's progress over the epochs.</p>
+  </section>
+
+  <section>
+    <h2>Step 5: Evaluating the Model</h2>
+    <p>Once the model is trained, we can evaluate its performance on the training data to see how well it has learned the XOR pattern.</p>
+    <pre><code>
+# Evaluating the model
+loss, accuracy = model.evaluate(X, y)
+print(f"Loss: {loss}")
+print(f"Accuracy: {accuracy}")
+    </code></pre>
+    <p>If the model has learned the XOR problem well, the accuracy should be 100% (1.0).</p>
+  </section>
+
+  <section>
+    <h2>Step 6: Making Predictions</h2>
+    <p>Finally, let's use the trained model to make predictions on the XOR inputs.</p>
+    <pre><code>
+# Making predictions
+predictions = model.predict(X)
+print("Predictions:")
+print(predictions)
+    </code></pre>
+    <p>The output will be close to 0 or 1, as the model predicts the XOR result for each input pair.</p>
+  </section>
+
+  <section>
+    <h2>Step 7: Visualizing the Results</h2>
+    <p>To visualize the results, you can print both the input data and the model's predictions side by side.</p>
+    <pre><code>
+# Displaying the inputs and predicted outputs
+for i in range(len(X)):
+    print(f"Input: {X[i]}, Predicted Output: {predictions[i]}")
+    </code></pre>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 AIJourney | All Rights Reserved | Email: <a href="mailto:shritejpatil@icloud.com">shritejpatil@icloud.com</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your First Machine Learning Model</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Build Your First Machine Learning Model</h1>
+    <p>A step-by-step guide to creating a simple machine learning model using Python and Scikit-learn.</p>
+  </header>
+
+  <section>
+    <h2>What is Machine Learning?</h2>
+    <p>Machine Learning (ML) is a branch of AI that allows computers to learn from data and make decisions with minimal human intervention.</p>
+  </section>
+
+  <section>
+    <h2>Prerequisites</h2>
+    <p>Before getting started, make sure you have the following installed:</p>
+    <ul>
+      <li>Python (version 3.x)</li>
+      <li>Pip (Python package installer)</li>
+      <li>Scikit-learn library (Install using <code>pip install scikit-learn</code>)</li>
+      <li>Other useful libraries: <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Step 1: Importing Libraries</h2>
+    <p>Start by importing the necessary Python libraries for building and evaluating a machine learning model.</p>
+    <pre><code>
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 2: Loading the Dataset</h2>
+    <p>For this tutorial, we will use a simple dataset with housing prices. You can download a dataset or use one available through Scikit-learn.</p>
+    <pre><code>
+# Example: Generating a small dataset
+data = {
+    'Area': [1200, 1500, 1800, 2000, 2200],
+    'Price': [300000, 400000, 500000, 550000, 650000]
+}
+
+df = pd.DataFrame(data)
+print(df.head())
+    </code></pre>
+
+    <p>This simple dataset contains two features: <strong>Area</strong> (in square feet) and <strong>Price</strong> (in dollars).</p>
+  </section>
+
+  <section>
+    <h2>Step 3: Preparing the Data</h2>
+    <p>Next, split the dataset into training and testing sets to evaluate how well the model performs on unseen data.</p>
+    <pre><code>
+X = df[['Area']]  # Feature (independent variable)
+y = df['Price']   # Target (dependent variable)
+
+# Splitting the data into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 4: Training the Model</h2>
+    <p>We'll use a simple Linear Regression model to predict the price of houses based on their area.</p>
+    <pre><code>
+# Initializing the model
+model = LinearRegression()
+
+# Training the model using the training data
+model.fit(X_train, y_train)
+
+# Predicting the prices for the test data
+y_pred = model.predict(X_test)
+
+print("Predicted Prices:", y_pred)
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Step 5: Evaluating the Model</h2>
+    <p>Finally, evaluate the performance of the model using the Mean Squared Error (MSE), which tells us how far off our predictions are from the actual values.</p>
+    <pre><code>
+# Calculating the Mean Squared Error
+mse = mean_squared_error(y_test, y_pred)
+print("Mean Squared Error:", mse)
+    </code></pre>
+
+    <p>If the Mean Squared Error is small, it means our model is doing a good job of predicting the house prices.</p>
+  </section>
+
+  <section>
+    <h2>Step 6: Visualizing the Results</h2>
+    <p>It can be helpful to visualize the relationship between the area of the house and the predicted price.</p>
+    <pre><code>
+import matplotlib.pyplot as plt
+
+# Plotting the training data and the linear regression line
+plt.scatter(X_train, y_train, color='blue', label='Training Data')
+plt.plot(X_train, model.predict(X_train), color='red', label='Regression Line')
+
+# Plotting the test data
+plt.scatter(X_test, y_test, color='green', label='Test Data')
+plt.xlabel('Area (square feet)')
+plt.ylabel('Price (USD)')
+plt.legend()
+plt.show()
+    </code></pre>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 AIJourney | All Rights Reserved | Email: <a href="mailto:shritejpatil@icloud.com">shritejpatil@icloud.com</a></p>
+  </footer>
+</body>
+</html>
